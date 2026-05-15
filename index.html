@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TastyBites Restaurant | Premium HTML Template</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+    .logo { font-size: 28px; font-weight: 700; color: #e63946; }
+    .nav-links { display: flex; gap: 35px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: #e63946; }
+    .btn-order {
+      background: #e63946;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s;
+    }
+    .btn-order:hover { transform: scale(1.05); }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 80px;
+      min-height: 90vh;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+    .hero-content h1 {
+      font-size: 72px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    }
+    .hero-content p {
+      font-size: 22px;
+      margin-bottom: 40px;
+      opacity: 0.95;
+    }
+    .btn-hero {
+      background: #e63946;
+      color: white;
+      padding: 18px 45px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+    .btn-hero:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(230,57,70,0.4);
+    }
+
+    /* Sections */
+    section { padding: 100px 5%; }
+    .section-title {
+      text-align: center;
+      font-size: 48px;
+      margin-bottom: 60px;
+      color: #1d3557;
+    }
+
+    /* Menu Grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      margin: auto;
+    }
+    .menu-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .menu-card:hover { transform: translateY(-10px); }
+    .menu-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .menu-content { padding: 25px; }
+    .menu-content h3 { font-size: 24px; margin-bottom: 10px; color: #1d3557; }
+    .menu-content p { color: #666; margin-bottom: 15px; }
+    .price {
+      font-size: 28px;
+      font-weight: 700;
+      color: #e63946;
+    }
+
+    /* About */
+    .about {
+      background: #f8f9fa;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
+    .about h2 { font-size: 48px; margin-bottom: 20px; color: #1d3557; }
+    .about p { font-size: 18px; color: #555; margin-bottom: 20px; }
+
+    /* Contact */
+    .contact {
+      background: #1d3557;
+      color: white;
+      text-align: center;
+    }
+    .contact .section-title { color: white; }
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .contact-box {
+      background: rgba(255,255,255,0.1);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+    .contact-box i { font-size: 40px; margin-bottom: 20px; color: #e63946; }
+    .contact-box h3 { font-size: 24px; margin-bottom: 15px; }
+
+    /* Footer */
+    footer {
+      background: #0a1929;
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 20px;
+    }
+    .social-icons a {
+      color: white;
+      font-size: 24px;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover { color: #e63946; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-content h1 { font-size: 42px; }
+      .about { grid-template-columns: 1fr; }
+      .section-title { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo"><i class="fas fa-utensils"></i> TastyBites</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn-order">Order Now</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Delicious Food, <br>Happy Moments</h1>
+      <p>Experience the taste of authentic cuisine made with love</p>
+      <a href="#menu" class="btn-hero">View Our Menu <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu">
+    <h2 class="section-title">Our Special Menu</h2>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800" alt="Pizza">
+        <div class="menu-content">
+          <h3>Margherita Pizza</h3>
+          <p>Fresh mozzarella, tomato sauce, basil leaves</p>
+          <div class="price">₹299</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=800" alt="Burger">
+        <div class="menu-content">
+          <h3>Classic Burger</h3>
+          <p>Juicy beef patty, lettuce, tomato, special sauce</p>
+          <div class="price">₹199</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=800" alt="Pasta">
+        <div class="menu-content">
+          <h3>White Sauce Pasta</h3>
+          <p>Creamy Alfredo sauce with mushrooms & herbs</p>
+          <div class="price">₹249</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div>
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800" alt="Restaurant">
+    </div>
+    <div>
+      <h2>About TastyBites</h2>
+      <p>For over 10 years, TastyBites has been serving delicious, freshly made meals to our community. We use only the finest ingredients and traditional recipes passed down through generations.</p>
+      <p>Our chefs bring passion and creativity to every dish, ensuring each bite is an unforgettable experience.</p>
+      <a href="#contact" class="btn-hero">Visit Us Today</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-info">
+    <!-- CHANGE THIS TO YOUR RESTAURANT DETAILS-->
+      <div class="contact-box">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Location</h3>
+        <p>123 Food Street, <br>Mumbai, Maharashtra</p>
+      </div>
+      <div class="contact-box">
+        <i class="fas fa-phone"></i>
+        <h3>Call Us</h3>
+        <p>+91 98765 43210</p>
+      </div>
+      <div class="contact-box">
+        <i class="fas fa-clock"></i>
+        <h3>Hours</h3>
+        <p>Mon-Sun: 10AM - 11PM</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    <p>&copy; 2026 TastyBites Restaurant. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
